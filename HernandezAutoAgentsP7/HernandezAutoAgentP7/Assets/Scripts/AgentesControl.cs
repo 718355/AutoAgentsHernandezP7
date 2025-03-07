@@ -16,7 +16,11 @@ public class AgentesControl : MonoBehaviour
         agent = this.GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.SetDestination(goalLocations[Random.Range(0, goalLocations.Length)].transform.position);
         anim = this.GetComponent<Animator>();
+        anim.SetFloat("wOffset", Random.Range(0, 1));
         anim.SetTrigger("isWalking");
+        float sm = Random.Range(0.2f, 1.5f);
+        anim.SetFloat("speedMult", sm);
+        agent.speed *= sm;
     }
 
     // Update is called once per frame
