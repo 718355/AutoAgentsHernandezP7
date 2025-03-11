@@ -42,6 +42,7 @@ public class AIControl : MonoBehaviour
         }
     }
 
+
     void Start() 
     {
         goalLocations = GameObject.FindGameObjectsWithTag("Goal");
