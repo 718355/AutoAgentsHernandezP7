@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class AgentesControl : MonoBehaviour
@@ -8,7 +9,30 @@ public class AgentesControl : MonoBehaviour
     GameObject[] goalLocations;
     UnityEngine.AI.NavMeshAgent agent;
     Animator anim;
+    float detectionRadius = 20;
+    float fleeRadius = 10;
+    public void DetectNewObstacle(Vector3 position)
+    {
 
+        if (Vector3.Distance(position, this.transform.position) < detectionRadius)
+        {
+
+            Vector3 fleeDirection = (this.transform.position - position).normalized;
+            Vector3 newgoal = this.transform.position + fleeDirection * fleeRadius;
+
+            NavMeshPath path = new NavMeshPath();
+            agent.CalculatePath(newgoal, path);
+
+            if (path.status != NavMeshPathStatus.PathInvalid)
+            {
+
+                agent.SetDestination(path.corners[path.corners.Length - 1]);
+                anim.SetTrigger("isRunning");
+                agent.speed = 10;
+                agent.angularSpeed = 500;
+            }
+        }
+    }
 
     void Start()
     {
