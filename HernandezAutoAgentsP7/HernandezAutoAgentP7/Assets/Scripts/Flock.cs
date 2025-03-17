@@ -21,13 +21,17 @@ public class Flock : MonoBehaviour
 
 
         RaycastHit hit = new RaycastHit();
+        Vector3 direction = Vector3.zero;
 
-        if (!b.Contains(transform.position) || 
-            Physics.Raycast(transform.position, this.transform.forward * 50, out hit))
-            
+        if (!b.Contains(transform.position) )
         {
             turning = true;
-            Debug.DrawRay(this.transform.position, this.transform.forward * 50, Color.red);
+            direction = myManager.transform.position - transform.position;
+        }
+        else if (Physics.Raycast(transform.position, this.transform.forward *25, out hit))
+        {
+            turning = true;
+            direction = Vector3.Reflect(this.transform.forward, hit.normal);
         }
         else
         {
@@ -36,7 +40,7 @@ public class Flock : MonoBehaviour
 
         if (turning)
         {
-            Vector3 direction = myManager.transform.position - transform.position;
+            
             transform.rotation = Quaternion.Slerp(transform.rotation,
                                                       Quaternion.LookRotation(direction),
                                                       myManager.rotationSpeed * Time.deltaTime);

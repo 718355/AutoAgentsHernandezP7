@@ -227,6 +227,59 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!1 &242104599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 242104601}
+  - component: {fileID: 242104600}
+  m_Layer: 0
+  m_Name: FlockManager (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &242104600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242104599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a169beba8207b7a4f9787a5670ec147f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishPrefab: {fileID: 1318662798089844, guid: 06a4036ceebb544e494c30d599b9d2c1, type: 3}
+  numFish: 50
+  allFish: []
+  swimLimits: {x: 5, y: 5, z: 5}
+  goalPos: {x: 0, y: 0, z: 0}
+  minSpeed: 0.1
+  maxSpeed: 0.7
+  neighbourDistance: 1
+  rotationSpeed: 1.02
+--- !u!4 &242104601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242104599}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1979.606, y: -840.09, z: -1211.62}
+  m_LocalScale: {x: 2.0959, y: 2.0959, z: 2.0959}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &262266758
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,14 +404,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishPrefab: {fileID: 1733855665772604, guid: b0489fdb6d64a4a4ba8e194e561d60cd, type: 3}
-  numFish: 35
+  numFish: 50
   allFish: []
   swimLimits: {x: 5, y: 5, z: 5}
   goalPos: {x: 0, y: 0, z: 0}
   minSpeed: 0.1
   maxSpeed: 0.7
   neighbourDistance: 1
-  rotationSpeed: 0.1
+  rotationSpeed: 1.02
 --- !u!4 &997115351
 Transform:
   m_ObjectHideFlags: 0
@@ -603,5 +656,6 @@ SceneRoots:
   - {fileID: 1260379332}
   - {fileID: 262266760}
   - {fileID: 997115351}
+  - {fileID: 242104601}
   - {fileID: 1004303915}
   - {fileID: 19419713}

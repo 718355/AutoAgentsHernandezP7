@@ -7,8 +7,8 @@ public class AIControl : MonoBehaviour {
     public NavMeshAgent agent;
     Animator anim;
     float speedMult;
-    float detectionRadius = 20;
-    float fleeRadius = 10;
+    float detectionRadius = 10;
+    float fleeRadius = 20;
 
     void ResetAgent() {
         speedMult = Random.Range(0.1f, 1.5f);
