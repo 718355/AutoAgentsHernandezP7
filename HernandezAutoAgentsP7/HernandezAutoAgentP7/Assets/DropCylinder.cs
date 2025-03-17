@@ -8,7 +8,7 @@ public class DropCylinder : MonoBehaviour {
 
     void Start() {
 
-        agents = GameObject.FindGameObjectsWithTag("Agent");
+        agents = GameObject.FindGameObjectsWithTag("agent");
         cam = GetComponent<Camera>();
     }
 
@@ -24,7 +24,7 @@ public class DropCylinder : MonoBehaviour {
                 Instantiate(obstacle, hitInfo.point, obstacle.transform.rotation);
                 foreach (GameObject a in agents) {
 
-                    a.GetComponent<AgentesControl>().DetectNewObstacle(hitInfo.point);
+                    a.GetComponent<AIControl>().DetectNewObstacle(hitInfo.point);
                 }
             }
         }
